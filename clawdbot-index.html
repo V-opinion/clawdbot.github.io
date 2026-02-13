@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clawdbot - AI Assistant</title>
+  <meta name="description" content="Clawdbot - Your personal AI assistant powered by OpenClaw and Claude AI">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      text-align: center;
+      color: white;
+      padding: 80px 20px;
+    }
+    
+    .logo {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .tagline {
+      font-size: 1.5rem;
+      opacity: 0.9;
+    }
+    
+    .content {
+      background: white;
+      border-radius: 20px;
+      padding: 60px;
+      margin-top: -50px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .content h2 {
+      color: #667eea;
+      margin: 40px 0 20px 0;
+      font-size: 2rem;
+    }
+    
+    .content h3 {
+      color: #764ba2;
+      margin: 30px 0 15px 0;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .feature {
+      padding: 30px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    
+    .feature h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+    }
+    
+    .setup-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 10px;
+      border-left: 5px solid #667eea;
+      margin: 30px 0;
+    }
+    
+    .cta {
+      text-align: center;
+      margin: 60px 0;
+      padding: 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 15px;
+      color: white;
+    }
+    
+    .button {
+      display: inline-block;
+      background: white;
+      color: #667eea;
+      padding: 15px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin: 10px;
+    }
+    
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    code {
+      background: #2d3748;
+      color: #68d391;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    
+    pre {
+      background: #2d3748;
+      color: #68d391;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    
+    ul, ol {
+      margin: 20px 0 20px 40px;
+    }
+    
+    li {
+      margin: 10px 0;
+    }
+    
+    a {
+      color: #667eea;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    footer {
+      text-align: center;
+      color: white;
+      padding: 40px 20px;
+    }
+    
+    footer a {
+      color: white;
+      margin: 0 15px;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      background: #48bb78;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .content {
+        padding: 30px 20px;
+      }
+      
+      .logo {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">🦞</div>
+      <h1>Clawdbot</h1>
+      <p class="tagline">Your Personal AI Assistant Powered by OpenClaw</p>
+      <p style="margin-top: 15px;">
+        <span class="status-badge">🟢 Online</span>
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="content">
+      <h2>Welcome to Clawdbot! 👋</h2>
+      <p>
+        Clawdbot is a powerful AI assistant running on <strong>OpenClaw</strong>, connecting 
+        <strong>Claude AI</strong> to your favorite messaging platforms. Chat with advanced AI 
+        through WhatsApp, Telegram, Discord, and more - all from one unified bot!
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">💬</div>
+          <h3>Multi-Platform Support</h3>
+          <p>Connect to WhatsApp, Telegram, Discord, Slack, iMessage, Signal, and 15+ other messaging platforms.</p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🤖</div>
+          <h3>Claude AI Powered</h3>
+          <p>Leverages Anthropic's Claude Opus 4.6 for intelligent, context-aware conversations.</p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🔧</div>
+          <h3>Self-Hosted</h3>
+          <p>Run on your own infrastructure with full control, privacy, and customization.</p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🌐</div>
+          <h3>Open Source</h3>
+          <p>Built on OpenClaw, the community-driven open-source AI assistant framework.</p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Lightning Fast</h3>
+          <p>Quick response times with local gateway for instant, real-time messaging.</p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🔐</div>
+          <h3>Enterprise Security</h3>
+          <p>End-to-end encryption support with enterprise-grade security features.</p>
+        </div>
+      </div>
+
+      <h2>📋 How Clawdbot Works</h2>
+      <ol>
+        <li><strong>Install OpenClaw:</strong> <code>npm install -g openclaw</code></li>
+        <li><strong>Configure Your Bot:</strong> <code>openclaw configure</code></li>
+        <li><strong>Add API Keys:</strong> Set up Anthropic Claude API access</li>
+        <li><strong>Connect Channels:</strong> Link WhatsApp, Telegram, or other platforms</li>
+        <li><strong>Start the Gateway:</strong> <code>openclaw gateway --force</code></li>
+        <li><strong>Start Chatting:</strong> Message your AI assistant from anywhere!</li>
+      </ol>
+
+      <div class="setup-box">
+        <h3>🖥️ My Clawdbot Setup</h3>
+        <p>This instance is running on:</p>
+        <ul style="margin-left: 20px;">
+          <li>💻 <strong>Platform:</strong> Windows 11</li>
+          <li>🤖 <strong>AI Model:</strong> Claude Opus 4.6 (Latest)</li>
+          <li>📍 <strong>Location:</strong> Stockholm, Sweden</li>
+          <li>⚙️ <strong>Gateway Mode:</strong> Local (ws://127.0.0.1:18789)</li>
+          <li>🔌 <strong>Connected Channels:</strong> Ready to configure</li>
+          <li>🚀 <strong>Status:</strong> Active & Running</li>
+        </ul>
+      </div>
+
+      <h2>✨ Key Features & Capabilities</h2>
+      
+      <h3>What Can Clawdbot Do?</h3>
+      <ul>
+        <li>💡 Answer questions and provide information</li>
+        <li>📝 Help with writing, editing, and content creation</li>
+        <li>💻 Assist with coding and technical problems</li>
+        <li>🔍 Perform web searches and research</li>
+        <li>📊 Analyze data and create summaries</li>
+        <li>🌐 Translate between languages</li>
+        <li>🎨 Help with creative projects</li>
+        <li>📚 Provide learning assistance and tutoring</li>
+      </ul>
+
+      <h3>🛠️ Advanced Features</h3>
+      <ul>
+        <li><strong>Skills System:</strong> Extend functionality with custom plugins</li>
+        <li><strong>Multi-Agent Support:</strong> Handle multiple conversations simultaneously</li>
+        <li><strong>Context Awareness:</strong> Remembers conversation history</li>
+        <li><strong>File Handling:</strong> Process documents, images, and more</li>
+        <li><strong>Web Integration:</strong> Search the web and fetch information</li>
+        <li><strong>Customizable Responses:</strong> Tailor the bot's personality and behavior</li>
+      </ul>
+
+      <div class="cta">
+        <h2>🚀 Want to Set Up Your Own Clawdbot?</h2>
+        <p style="margin: 20px 0;">Join thousands of users running their own AI assistants!</p>
+        <a href="https://openclaw.ai" class="button" target="_blank">Get Started with OpenClaw →</a>
+        <a href="https://docs.openclaw.ai" class="button" target="_blank">Read the Docs 📚</a>
+      </div>
+
+      <h2>📖 Installation Quick Start</h2>
+      <p>Get Clawdbot running in 5 minutes:</p>
+      
+      <pre><code># Install OpenClaw
+npm install -g openclaw
+
+# Configure your bot
+openclaw configure
+
+# Set your Anthropic API key
+openclaw config set auth.profiles.anthropic:default.apiKey "sk-ant-your-key"
+
+# Start the gateway
+openclaw gateway --force
+
+# Connect your channels
+openclaw channels login</code></pre>
+
+      <h2>🔗 Resources & Documentation</h2>
+      <ul>
+        <li>📚 <a href="https://docs.openclaw.ai" target="_blank"><strong>OpenClaw Documentation</strong></a> - Complete guides and tutorials</li>
+        <li>🐙 <a href="https://github.com/openclaw" target="_blank"><strong>GitHub Repository</strong></a> - Source code and contributions</li>
+        <li>💬 <a href="https://discord.gg/openclaw" target="_blank"><strong>Community Discord</strong></a> - Get help and share ideas</li>
+        <li>🔧 <a href="https://docs.anthropic.com" target="_blank"><strong>Claude API Docs</strong></a> - Anthropic's official documentation</li>
+        <li>📝 <a href="https://www.npmjs.com/package/openclaw" target="_blank"><strong>NPM Package</strong></a> - Latest version and changelog</li>
+      </ul>
+
+      <h2>💡 Use Cases</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">👨‍💼</div>
+          <h3>Business</h3>
+          <p>Customer support, team collaboration, automated workflows</p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🎓</div>
+          <h3>Education</h3>
+          <p>Tutoring, homework help, learning assistance</p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">👥</div>
+          <h3>Personal</h3>
+          <p>Daily assistant, productivity boost, information lookup</p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🔬</div>
+          <h3>Research</h3>
+          <p>Data analysis, literature review, summarization</p>
+        </div>
+      </div>
+
+      <h2>❓ Frequently Asked Questions</h2>
+      
+      <h3>Is Clawdbot free to use?</h3>
+      <p>OpenClaw is free and open-source, but you need a Claude API key from Anthropic (paid). API costs are typically very affordable for personal use.</p>
+      
+      <h3>Can I use it with my existing messaging apps?</h3>
+      <p>Yes! Clawdbot supports WhatsApp, Telegram, Discord, Slack, iMessage, Signal, and many more platforms.</p>
+      
+      <h3>Is my data private?</h3>
+      <p>When self-hosted, all data stays on your infrastructure. Conversations with Claude are subject to Anthropic's privacy policy.</p>
+      
+      <h3>Do I need coding experience?</h3>
+      <p>Basic command-line knowledge helps, but the setup wizard makes it accessible for beginners.</p>
+
+      <div class="cta" style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);">
+        <h2>🌟 Ready to Start?</h2>
+        <p>Install OpenClaw today and bring Claude AI to all your messaging platforms!</p>
+        <a href="https://openclaw.ai/install.ps1" class="button" style="background: white; color: #48bb78;">
+          Download Installer →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>🦞 Powered by <a href="https://openclaw.ai" target="_blank"><strong>OpenClaw</strong></a></p>
+      <p style="margin-top: 15px;">
+        <a href="https://multireligionvalsystem.eu.org">← Back to Main Site</a>
+        <a href="https://docs.openclaw.ai" target="_blank">Documentation</a>
+        <a href="https://github.com/openclaw" target="_blank">GitHub</a>
+      </p>
+      <p style="margin-top: 20px; opacity: 0.8;">
+        &copy; 2026 Clawdbot Instance | Stockholm, Sweden
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
