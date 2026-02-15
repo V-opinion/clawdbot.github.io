@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clawdbot - AI Assistant | Multi-Religion Value System</title>
+  <meta name="description" content="Clawdbot AI assistant for the Multi-Religion Value System. Learn about our organization, 1,200+ members, inter-religious dialogue, and democratic election framework based in Stockholm, Sweden.">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      text-align: center;
+      color: white;
+      padding: 80px 20px;
+    }
+    
+    .logo {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .tagline {
+      font-size: 1.5rem;
+      opacity: 0.9;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      background: #48bb78;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    
+    .content {
+      background: white;
+      border-radius: 20px;
+      padding: 60px;
+      margin-top: -50px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .content h2 {
+      color: #667eea;
+      margin: 40px 0 20px 0;
+      font-size: 2rem;
+    }
+    
+    .content h3 {
+      color: #764ba2;
+      margin: 30px 0 15px 0;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .feature {
+      padding: 30px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    
+    .feature h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+    }
+    
+    .info-box {
+      background: #ecf0f1;
+      padding: 30px;
+      border-left: 5px solid #667eea;
+      margin: 30px 0;
+      border-radius: 5px;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .stat-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #667eea;
+      display: block;
+    }
+    
+    .stat-label {
+      color: #666;
+      margin-top: 10px;
+    }
+    
+    .faq {
+      margin: 40px 0;
+    }
+    
+    .faq-item {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #2c3e50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+    
+    .faq-question:hover {
+      background: #f8f9fa;
+    }
+    
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 20px 20px 20px;
+    }
+    
+    .faq-toggle {
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+    
+    .cta {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 40px;
+      border-radius: 15px;
+      text-align: center;
+      margin: 60px 0;
+    }
+    
+    .cta h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+    
+    .button {
+      display: inline-block;
+      background: white;
+      color: #667eea;
+      padding: 15px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin: 10px;
+    }
+    
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    ul {
+      margin: 20px 0 20px 40px;
+    }
+    
+    li {
+      margin: 10px 0;
+    }
+    
+    a {
+      color: #667eea;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    
+    footer a {
+      color: white;
+      margin: 0 15px;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .content {
+        padding: 30px 20px;
+      }
+      
+      .logo {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">🦞</div>
+      <h1>Clawdbot</h1>
+      <p class="tagline">AI Assistant for the Multi-Religion Value System</p>
+      <p class="status-badge">🟢 Online</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="content">
+      
+      <!-- About Section -->
+      <h2>About Clawdbot & Multi-Religion Value System</h2>
+      
+      <p>
+        <strong>Clawdbot</strong> is the AI-powered assistant for the <strong>Multi-Religion Value System</strong>, 
+        a comprehensive framework promoting inter-religious dialogue and democratic values in Sweden. 
+        We unite over 1,200 members across 15 cities in our mission to build bridges between different 
+        faith communities while strengthening democratic institutions.
+      </p>
+
+      <!-- Statistics -->
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-number">1,247</span>
+          <span class="stat-label">Active Members</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">15</span>
+          <span class="stat-label">Cities Represented</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">89%</span>
+          <span class="stat-label">Member Satisfaction</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Years Active</span>
+        </div>
+      </div>
+
+      <!-- What is Multi-Religion Value System -->
+      <h2>What is the Multi-Religion Value System?</h2>
+      
+      <p>
+        The Multi-Religion Value System is a comprehensive framework with three interconnected components:
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">📖</div>
+          <h3>Religion Comparisons</h3>
+          <p>
+            In-depth analysis and comparisons between major world religions including Hinduism, Buddhism, 
+            Judaism, Christianity, Islam, and others. We explore similarities, differences, and shared values.
+          </p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🤝</div>
+          <h3>Judisk-Kristna Politiska Alliansen</h3>
+          <p>
+            The Judeo-Christian Political Alliance - a non-partisan movement uniting Judeo-Christian values 
+            with democratic principles. Open to all who value tolerance and dialogue.
+          </p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🗳️</div>
+          <h3>Democratic Election Framework</h3>
+          <p>
+            An inclusive voting system based on multi-religious values, ensuring proportional representation 
+            and protecting the rights of all belief systems.
+          </p>
+        </div>
+      </div>
+
+      <!-- Core Principles -->
+      <h2>Our Core Principles</h2>
+      
+      <ul>
+        <li><strong>Religious Freedom & Tolerance:</strong> Everyone has the right to practice their faith freely</li>
+        <li><strong>Social Justice:</strong> Ethical principles guide our approach to societal issues</li>
+        <li><strong>Inter-Religious Dialogue:</strong> Building understanding between different faith communities</li>
+        <li><strong>Democratic Values:</strong> Respect for human rights and democratic processes</li>
+        <li><strong>Community Solidarity:</strong> Mutual responsibility and support for one another</li>
+      </ul>
+
+      <!-- Election System -->
+      <h2>Multi-Religion Election System</h2>
+      
+      <p>
+        Our democratic election framework ensures that all voices are heard while maintaining 
+        ethical standards based on shared religious values:
+      </p>
+
+      <div class="info-box">
+        <h3>Key Features:</h3>
+        <ul>
+          <li><strong>Proportional Representation:</strong> All religious and secular groups receive representation based on their support</li>
+          <li><strong>Inter-Religious Councils:</strong> Platforms for dialogue and collaborative decision-making</li>
+          <li><strong>Ethical Guidelines:</strong> Based on common Judeo-Christian values shared across traditions</li>
+          <li><strong>Inclusive Processes:</strong> Every voice matters, regardless of background</li>
+          <li><strong>Protection of Minorities:</strong> Special safeguards for minority rights and perspectives</li>
+        </ul>
+      </div>
+
+      <!-- Location & Contact -->
+      <h2>Based in Stockholm, Sweden</h2>
+      
+      <p>
+        The Multi-Religion Value System operates from <strong>Stockholm, Sweden</strong>, 
+        with active members and communities across 15 Swedish cities. We welcome participation 
+        from anyone who shares our values of tolerance, dialogue, and democratic cooperation.
+      </p>
+
+      <!-- FAQ Section -->
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What religions are included in the Multi-Religion Value System?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We work with all major world religions including Hinduism, Buddhism, Judaism, Christianity, 
+              Islam, Sikhism, and others. We also welcome secular perspectives. Our framework is designed 
+              to be inclusive of all belief systems that respect democratic values and human rights.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Is the Multi-Religion Value System tied to any political party?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              No, we are completely non-partisan. The Judisk-Kristna Politiska Alliansen works with all 
+              democratic parties and focuses on promoting inter-religious dialogue and ethical governance 
+              rather than partisan politics.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Can non-religious people join the alliance?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Absolutely! We welcome both religious and secular individuals who share our values of 
+              respect, dialogue, tolerance, and democratic cooperation. You don't need to be religious 
+              to support inter-religious understanding and social justice.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How does the multi-religion election system work?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Our system uses proportional representation to ensure all groups have a voice, 
+              inter-religious councils for dialogue and collaboration, ethical guidelines based on 
+              shared values, and inclusive democratic processes. It's designed to respect both 
+              religious convictions and secular viewpoints while maintaining democratic accountability.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How do I join the Judisk-Kristna Politiska Alliansen?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Membership is completely free! Visit our alliance website at 
+              <a href="https://a-multi-religion-election-system.multireligionvalsystem.eu.org/den-judisk-kristna-politiska-alliansen/" target="_blank">
+                a-multi-religion-election-system.multireligionvalsystem.eu.org/den-judisk-kristna-politiska-alliansen/
+              </a> 
+              and fill out the membership form. You can cancel your membership at any time.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What does Clawdbot do?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Clawdbot is our AI assistant powered by Claude and OpenClaw. It can answer questions about 
+              the Multi-Religion Value System, explain our election framework, provide information about 
+              membership, and facilitate inter-religious dialogue. You can chat with Clawdbot through 
+              WhatsApp, Telegram, Discord, and other messaging platforms.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Where can I learn more about different religions?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Visit our main website at 
+              <a href="https://multireligionvalsystem.eu.org" target="_blank">multireligionvalsystem.eu.org</a> 
+              where we provide detailed comparisons between major world religions. Topics include:
+            </p>
+            <ul>
+              <li>Hinduism vs Buddhism</li>
+              <li>Judaism vs Christianity</li>
+              <li>Christianity vs Islam</li>
+              <li>And many more comparative analyses</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What activities does the alliance organize?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We organize inter-religious dialogue sessions, educational seminars, community events, 
+              workshops on democratic values, and collaborative social justice initiatives. Members 
+              can also participate in local groups within their cities and contribute to policy 
+              development discussions.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Is there a membership fee?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              No! Membership in the Judisk-Kristna Politiska Alliansen is completely free. 
+              We believe in making our movement accessible to everyone who shares our values, 
+              regardless of financial circumstances.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How is Clawdbot hosted?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Clawdbot runs on OpenClaw, an open-source AI assistant framework, and is self-hosted 
+              in Stockholm, Sweden. It uses Claude Opus 4.6 as its AI model and can connect to 
+              multiple messaging platforms including WhatsApp, Telegram, Discord, and more.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <h2>Resources & Links</h2>
+      
+      <ul>
+        <li><strong>Main Website:</strong> <a href="https://multireligionvalsystem.eu.org" target="_blank">multireligionvalsystem.eu.org</a> - Religion comparisons and educational content</li>
+        <li><strong>Alliance Website:</strong> <a href="https://a-multi-religion-election-system.multireligionvalsystem.eu.org/den-judisk-kristna-politiska-alliansen/" target="_blank">Judisk-Kristna Politiska Alliansen</a> - Join our movement</li>
+        <li><strong>Clawdbot:</strong> <a href="https://clawdbot.multireligionvalsystem.eu.org" target="_blank">clawdbot.multireligionvalsystem.eu.org</a> - This site</li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="cta">
+        <h2>Join Our Movement</h2>
+        <p style="font-size: 1.2rem; margin: 20px 0;">
+          Become part of Sweden's growing inter-religious community. 
+          Help us build bridges between faith traditions and strengthen democracy.
+        </p>
+        <a href="https://a-multi-religion-election-system.multireligionvalsystem.eu.org/den-judisk-kristna-politiska-alliansen/" class="button" target="_blank">
+          Become a Member (Free) →
+        </a>
+        <a href="https://multireligionvalsystem.eu.org" class="button" target="_blank">
+          Explore Religion Comparisons →
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>🦞 Powered by <a href="https://openclaw.ai" target="_blank">OpenClaw</a> & Claude AI</p>
+      <p style="margin-top: 15px;">
+        <a href="https://multireligionvalsystem.eu.org">Main Site</a>
+        <a href="https://a-multi-religion-election-system.multireligionvalsystem.eu.org/den-judisk-kristna-politiska-alliansen/">Alliance</a>
+        <a href="https://clawdbot.multireligionvalsystem.eu.org">Clawdbot</a>
+      </p>
+      <p style="margin-top: 20px; opacity: 0.8;">
+        &copy; 2026 Multi-Religion Value System | Stockholm, Sweden
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(element) {
+      const faqItem = element.parentElement;
+      faqItem.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
