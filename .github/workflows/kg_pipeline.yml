@@ -1,0 +1,139 @@
+import os
+import json
+import requests
+from typing import List
+from pydantic import BaseModel, Field
+from neo4j import GraphDatabase, exceptions
+
+# ---------------------------------------------------------------------------
+# 1. Environment & API Configuration
+# ---------------------------------------------------------------------------
+CF_ACCOUNT_ID = os.getenv("CLOUDFLARE_ACCOUNT_ID")
+CF_API_TOKEN = os.getenv("CLOUDFLARE_API_TOKEN")
+
+NEO4J_URI = os.getenv("NEO4J_URI", "neo4j+s://xxxxxx.databases.neo4j.io")
+NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
+NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD")
+
+# Use Cloudflare's fast & free Llama 3.3 70B model endpoint
+CF_MODEL_URL = f"https://api.cloudflare.com/client/v4/accounts/{CF_ACCOUNT_ID}/ai/run/@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+
+# ---------------------------------------------------------------------------
+# 2. Schema Definitions (Pydantic models for validation)
+# ---------------------------------------------------------------------------
+class Entity(BaseModel):
+    id: str = Field(..., description="Unique slug for entity, e.g., 'lebanon' or 'sunni_islam'")
+    name: str = Field(..., description="Readable name, e.g., 'Lebanon'")
+    label: str = Field(..., description="Entity category: Jurisdiction, ReligiousGroup, ElectoralSystem, LegalClause, or EthicalPrinciple")
+
+class Relationship(BaseModel):
+    source_id: str = Field(..., description="Source entity id")
+    target_id: str = Field(..., description="Target entity id")
+    type: str = Field(..., description="Relationship in UPPERCASE: GOVERNS, RESERVES_SEATS_FOR, ADHERES_TO, PROTECTS")
+
+class KnowledgeGraphExtraction(BaseModel):
+    entities: List[Entity]
+    relationships: List[Relationship]
+
+# ---------------------------------------------------------------------------
+# 3. Cloudflare Workers AI LLM Extraction Function
+# ---------------------------------------------------------------------------
+def extract_triples_via_cloudflare(text: str) -> dict:
+    headers = {
+        "Authorization": f"Bearer {CF_API_TOKEN}",
+        "Content-Type": "application/json"
+    }
+    
+    system_prompt = """
+    You are an expert in comparative legal systems, electoral frameworks, and religious governance.
+    Extract entities and relationships from the provided text in strict JSON output matching this structure:
+    {
+      "entities": [
+        {"id": "lebanon", "name": "Lebanon", "label": "Jurisdiction"},
+        {"id": "maronite_christian", "name": "Maronite Christian", "label": "ReligiousGroup"}
+      ],
+      "relationships": [
+        {"source_id": "article_24", "target_id": "maronite_christian", "type": "RESERVES_SEATS_FOR"}
+      ]
+    }
+    Allowed labels: Jurisdiction, ReligiousGroup, ElectoralSystem, LegalClause, EthicalPrinciple.
+    Only output valid JSON—no markdown, explanations, or commentary.
+    """
+    
+    payload = {
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": f"Extract knowledge graph triples from:\n\n{text}"}
+        ],
+        "temperature": 0.1
+    }
+    
+    response = requests.post(CF_MODEL_URL, headers=headers, json=payload, timeout=30)
+    response.raise_for_status()
+    
+    result = response.json()
+    raw_text = result["result"]["response"]
+    
+    # Strip markdown quotes if LLM wraps output in triple backticks
+    clean_json = raw_text.replace("```json", "").replace("```", "").strip()
+    return json.loads(clean_json)
+
+# ---------------------------------------------------------------------------
+# 4. Neo4j Ingestion Engine
+# ---------------------------------------------------------------------------
+class Neo4jPipeline:
+    def __init__(self, uri, user, password):
+        self.driver = GraphDatabase.driver(uri, auth=(user, password))
+
+    def close(self):
+        self.driver.close()
+
+    def write_graph(self, data: dict):
+        with self.driver.session() as session:
+            session.execute_write(self._create_entities_and_relations, data)
+
+    @staticmethod
+    def _create_entities_and_relations(tx, data):
+        # 1. Merge entities dynamically by Node Label
+        for entity in data.get("entities", []):
+            label = entity["label"]
+            # Ensure label safety
+            if label in ["Jurisdiction", "ReligiousGroup", "ElectoralSystem", "LegalClause", "EthicalPrinciple"]:
+                query = f"""
+                MERGE (e:{label} {{id: $id}})
+                SET e.name = $name, e.updated_at = datetime()
+                """
+                tx.run(query, id=entity["id"], name=entity["name"])
+
+        # 2. Merge relationships safely
+        for rel in data.get("relationships", []):
+            rel_type = rel["type"].upper().replace(" ", "_")
+            query = f"""
+            MATCH (s {{id: $source_id}})
+            MATCH (t {{id: $target_id}})
+            MERGE (s)-[r:{rel_type}]->(t)
+            SET r.created_at = datetime()
+            """
+            tx.run(query, source_id=rel["source_id"], target_id=rel["target_id"])
+
+# ---------------------------------------------------------------------------
+# 5. Pipeline Execution
+# ---------------------------------------------------------------------------
+if __name__ == "__main__":
+    sample_text = """
+    Article 24 of the Constitution of Lebanon mandates that parliamentary seats 
+    shall be distributed equally between Christians and Muslims, including reserved seats 
+    for Maronite Christian, Sunni Muslim, and Shia Muslim communities under a confessional electoral system.
+    """
+    
+    print("Extracting entities using Cloudflare Workers AI...")
+    graph_data = extract_triples_via_cloudflare(sample_text)
+    print(f"Extracted Graph Data: {json.dumps(graph_data, indent=2)}")
+
+    print("Connecting to Neo4j database...")
+    pipeline = Neo4jPipeline(NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD)
+    try:
+        pipeline.write_graph(graph_data)
+        print("✅ Graph data successfully written to Neo4j!")
+    finally:
+        pipeline.close()
