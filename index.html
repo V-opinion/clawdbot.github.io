@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MMV2S7Z6');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clawdbot - AI Assistant | A multi-religion election system (MRES)</title>
+   <meta name="google-site-verification" content="WdnsMxOviwQTsK0Dxo8FqJ2spmgqYOGkSwh6Nl-4wZk">
+  <meta name="description" content="Clawdbot AI assistant for the Multi-Religion election System. Learn about our organization, 1,200+ members, inter-religious dialogue, and democratic election framework based in Stockholm, Sweden.">
+  <link rel="canonical" href=https://clawdbot.multireligionvalsystem.eu.org/">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      text-align: center;
+      color: white;
+      padding: 80px 20px;
+    }
+    
+    .logo {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .tagline {
+      font-size: 1.5rem;
+      opacity: 0.9;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      background: #48bb78;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    
+    .content {
+      background: white;
+      border-radius: 20px;
+      padding: 60px;
+      margin-top: -50px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .content h2 {
+      color: #667eea;
+      margin: 40px 0 20px 0;
+      font-size: 2rem;
+    }
+    
+    .content h3 {
+      color: #764ba2;
+      margin: 30px 0 15px 0;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .feature {
+      padding: 30px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    
+    .feature h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+    }
+    
+    .info-box {
+      background: #ecf0f1;
+      padding: 30px;
+      border-left: 5px solid #667eea;
+      margin: 30px 0;
+      border-radius: 5px;
+    }
+    
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .stat-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #667eea;
+      display: block;
+    }
+    
+    .stat-label {
+      color: #666;
+      margin-top: 10px;
+    }
+    
+    .faq {
+      margin: 40px 0;
+    }
+    
+    .faq-item {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #2c3e50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+    
+    .faq-question:hover {
+      background: #f8f9fa;
+    }
+    
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 20px 20px 20px;
+    }
+    
+    .faq-toggle {
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+    
+    .cta {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 40px;
+      border-radius: 15px;
+      text-align: center;
+      margin: 60px 0;
+    }
+    
+    .cta h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+    
+    .button {
+      display: inline-block;
+      background: white;
+      color: #667eea;
+      padding: 15px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin: 10px;
+    }
+    
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    ul {
+      margin: 20px 0 20px 40px;
+    }
+    
+    li {
+      margin: 10px 0;
+    }
+    
+    a {
+      color: #667eea;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    
+    footer a {
+      color: white;
+      margin: 0 15px;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .content {
+        padding: 30px 20px;
+      }
+      
+      .logo {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+ <nav class="site-nav">
+  <div class="nav-container">
+    <a href="https://www.multireligionvalsystem.eu.org" class="nav-logo">
+      Multi-Religion Value System
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="https://www.multireligionvalsystem.eu.org">Comparisons</a></li>
+      <li><a href="https://www.multireligionvalsystem.eu.org/mres/den-judisk-kristna-politiska-alliansen/">Alliance</a></li>
+     <li><a href="https://political-practices-in-exile.multireligionvalsystem.eu.org/">جذور الأحزاب السويدية</a></li>
+      <li><a href="https://frc.multireligionvalsystem.eu.org">The Faith Representatives Chamber (FRC) </a></li>
+       <li><a href="https://dpns.multireligionvalsystem.eu.org">Demokratiska partiet, De Nya Svenskarna (DPNS)</a></li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+.site-nav {
+  background: #2c3e50;
+  padding: 15px 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+</style>
+    
+    <ul class="nav-links">
+      <li><a href="https://www.multireligionvalsystem.eu.org">Comparisons</a></li>
+      <li><a href="https://www.multireligionvalsystem.eu.org/mres/den-judisk-kristna-politiska-alliansen/">Alliance</a></li>
+        <li><a href="https://political-practices-in-exile.multireligionvalsystem.eu.org/">جذور الأحزاب السويدية</a></li>
+      <li><a href="https://dpns.multireligionvalsystem.eu.org">Demokratiska partiet, De Nya Svenskarna (DPNS)</a></li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+.site-nav {
+  background: #2c3e50;
+  padding: 15px 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+</style>
+  <header>
+    <div class="container">
+      <div class="logo">✅ </div>
+      <h1>Demokratiska partiet, De Nya Svenskarna (DPNS)</h1>
+      <p class="tagline">AI Assistant for the Multi-Religion election System (MRES)</p>
+      <p class="status-badge">🟢 Online</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="content">
+      
+      <!-- About Section -->
+      <h2>About Clawdbot & Multi-Religion election System< (MRES)/h2>
+      
+      <p>
+        <strong>Demokratiska partiet, De Nya Svenskarna (DPNS)</strong> is the AI-powered assistant for the <strong>Multi-Religion election System (MRES)</strong>,
+        a comprehensive framework promoting inter-religious dialogue and democratic values in Sweden. 
+        We unite over 1,200 members across 15 cities in our mission to build bridges between different 
+        faith communities while strengthening democratic institutions. What do you think?Läs vidare om Multireligionvalsystemet , en överlägsen konfliktlösningsmodell som kan lösa den 78 år långa konflikten mellan Israel och Palestina..
+<li><a href="https://www.multireligionvalsystem.eu.org/global-tillampning/">👉 engagera dig nu ! 🤑  </a></li></p>
+      </p>
+<p>
+  Part of the 
+  <a href="https://www.multireligionvalsystem.eu.org">
+   Multireligionvalsystem (MRES)
+  </a> network.
+</p>
+
+<p>
+  Want to join our movement against genocide? Visit the 
+  <a href="https://palestina-israel-konflikten.multireligionvalsystem.eu.org/folkmord/The-International-Criminal-Tribunal-for-Israel-ICTI//">
+    Israel-Palestina konflikt
+  </a>.
+</p>
+      <!-- Statistics -->
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-number">1,247</span>
+          <span class="stat-label">Active Members</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">15</span>
+          <span class="stat-label">Cities Represented</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">89%</span>
+          <span class="stat-label">Member Satisfaction</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Years Active</span>
+        </div>
+      </div>
+
+      <!-- What is Multi-Religion election System -->
+      <h2>What is the Multi-Religion election System?</h2>
+      
+      <p>
+        The Multi-Religion election System (MRES) is a comprehensive framework with three interconnected components:
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">📖</div>
+          <h3>Religion Comparisons</h3>
+          <p>
+            In-depth analysis and comparisons between major world religions including Hinduism, Buddhism, 
+            Judaism, Christianity, Islam, and others. We explore similarities, differences, and shared values.
+          </p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🤝</div>
+          <h3>Judisk-Kristna Politiska Alliansen</h3>
+          <p>
+            The Judeo-Christian Political Alliance -Is an obstacle to peace in the Middle East and opposes the separation of state and church and politics and religion.
+          </p>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">🗳️</div>
+          <h3>Democratic Election Framework</h3>
+          <p>
+            An inclusive voting system based on multi-religious values, ensuring proportional representation 
+            and protecting the rights of all belief systems.Kyrkovalreform. 
+          </p>
+        </div>
+      </div>
+
+      <!-- Core Principles -->
+      <h2>Our Core Principles</h2>
+      
+      <ul>
+        <li><strong>Religious Freedom & Tolerance:</strong> Everyone has the right to practice their faith freely</li>
+        <li><strong>Social Justice:</strong> Ethical principles guide our approach to societal issues</li>
+        <li><strong>Inter-Religious Dialogue:</strong> Building understanding between different faith communities</li>
+        <li><strong>Democratic Values:</strong> Respect for human rights and democratic processes</li>
+        <li><strong>Community Solidarity:</strong> Mutual responsibility and support for one another</li>
+      </ul>
+
+      <!-- Election System -->
+      <h2>Multi-Religion Election System</h2>
+      
+      <p>
+        Our democratic election framework ensures that all voices are heard while maintaining 
+        ethical standards based on shared religious values:
+      </p>
+
+      <div class="info-box">
+        <h3>Key Features:</h3>
+        <ul>
+          <li><strong>Proportional Representation:</strong> All religious and secular groups receive representation based on their support</li>
+          <li><strong>Inter-Religious Councils:</strong> Platforms for dialogue and collaborative decision-making</li>
+          <li><strong>Ethical Guidelines:</strong> Based on common MUltireligionvalsystem (MRES) values shared across traditions</li>
+          <li><strong>Inclusive Processes:</strong> Every voice matters, regardless of background</li>
+          <li><strong>Protection of Minorities:</strong> Special safeguards for minority rights and perspectives</li>
+        </ul>
+      </div>
+
+      <!-- Location & Contact -->
+      <h2>Based in Stockholm, Sweden</h2>
+      
+      <p>
+        The Multi-Religion election System operates from <strong>Stockholm, Sweden</strong>, 
+        with active members and communities across 15 Swedish cities. We welcome participation 
+        from anyone who shares our values of tolerance, dialogue, and democratic cooperation.
+      </p>
+
+      <!-- FAQ Section -->
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What religions are included in the Multi-Religion election System (MRES)?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We work with all major world religions including Hinduism, Buddhism, Judaism, Christianity, 
+              Islam, Sikhism, and others. We also welcome secular perspectives. Our framework is designed 
+              to be inclusive of all belief systems that respect democratic values and human rights.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Is the Multi-Religion election System (MRES) tied to any political party?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              No, we are completely non-partisan. The Judisk-Kristna Politiska Alliansen works agin all 
+              democratic parties and not focuses on promoting inter-religious dialogue and ethical governance 
+              rather than partisan politics.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Can non-religious people join the alliance?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Absolutely! We welcome both religious and secular individuals who share our values of 
+              respect, dialogue, tolerance, and democratic cooperation. You don't need to be religious 
+              to support inter-religious understanding and social justice.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How does the multi-religion election system work?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Our system uses proportional representation to ensure all groups have a voice, 
+              inter-religious councils for dialogue and collaboration, ethical guidelines based on 
+              shared values, and inclusive democratic processes. It's designed to respect both 
+              religious convictions and secular viewpoints while maintaining democratic accountability.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How do I join the multi-relgion election system (MRES)?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Membership is completely free! Visit our Multireligionvalsystem website at 
+              <a href="https://www.multireligionvalsystem.eu.org/" target="_blank">
+                a-multi-religion-election-system.multireligionvalsystem.eu.org/den-judisk-kristna-politiska-alliansen/
+              </a> 
+              and fill out the membership form. You can cancel your membership at any time.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What does  Our AI assistant do?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+             Our AI assistant can answer questions about
+              the Multi-Religion election System (MRES),Multireligionvalsystem, explain our election framework, provide information about 
+              membership, and facilitate inter-religious dialogue. You can chat with Clawdbot through 
+              WhatsApp, Telegram, Discord, and other messaging platforms.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Where can I learn more about different religions?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Visit our main website at 
+              <a href="https://www.multireligionvalsystem.eu.org" target="_blank">multireligionvalsystem.eu.org</a> 
+              where we provide detailed comparisons between major world religions. Topics include:
+            </p>
+            <ul>
+               <li>MRES and MRE</li> 
+              <li>Hinduism vs Buddhism</li>
+              <li>Judaism vs Christianity</li>
+              <li>Christianity vs Islam</li>
+              <li>And many more comparative analyses</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What activities does the alliance organize?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We organize inter-religious dialogue sessions, educational seminars, community events, 
+              workshops on democratic values, and collaborative social justice initiatives. Members 
+              can also participate in local groups within their cities and contribute to policy 
+              development discussions. Läs vidare om Multireligionvalsystemet ,Multireligionvalsystem ,FN:s rollspel för fred som kan lösa den 78 år långa konflikten mellan Israel och Palestina..
+<li><a href="https://palestina-israel-konflikten.multireligionvalsystem.eu.org/folkmord/The-International-Criminal-Tribunal-for-Israel-ICTI/">👉 engagera dig nu ! 🤑  </a></li>
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Is there a membership fee?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Demokratiska partiet, De Nya Svenskarna (DPNS)
+Partiet grundades 1998 i Sverige av politiska flyktingar från olika länder .
+ Paetiet (DPNS) har en  överideologi som är en överlägsen de traditionella ideologierna , socialismen, konsevatismen, liberalismen och ekologismen som har misslyckats med att lösa  komplexa konflikter liksom den 78 år långa konflikten mellan Israel och Palestina så att den har fått   överlämnas från den ena politiska generationen till den andra.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How is Multireligionvalsystem (MRES) works?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Med  sekulärisering menar De Nya Svenskarna att genom den reformen, kyrkovalsreformen , uppnås jämställdhet samtidigt som demokratin utvecklas då de religiösa “samtliga registrerade  trossamfund som får statsbidrag från skattemedel genom SST-stifteler ” får ett eget valsystem ( Multireligionvalsystem) och en vald kammare (FRC) .
+Med  sekulärisering menar De Nya Svenskarna  att nationernas flaggor som vajar med religiösa och svårtolkade symboler över b l a  FN och EU skall göras om med en ny modern flaggdesign där religiösa och svårtolkade symboler ersätts med landets eget ccTLDs, (.SE) för Sverige, vilket representerar alla medborgare oavsett religion och bakgrund.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <h2>Resources & Links</h2>
+      
+      <ul>
+        <li><strong>Main Website:</strong> <a href="https://www.multireligionvalsystem.eu.org" target="_blank">multireligionvalsystem.eu.org</a> - Religion comparisons and educational content</li>
+        <li><strong>Multireligionvalsystem Website:</strong> <a href="https://mres.multireligionvalsystem.eu.org/" target="_blank">A multi-religion election system-MRES</a> - Join our movement DE Nya Svenskarna</li>
+        <li><strong>mre:</strong> <a href="https://mre.multireligionvalsystem.eu.org" target="_blank">clawdbot.multireligionvalsystem.eu.org</a> - This site</li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="cta">
+        <h2>Join Our Movement</h2>
+        <p style="font-size: 1.2rem; margin: 20px 0;">
+          Become part of Sweden's growing inter-religious community. 
+          Help us build bridges between faith traditions and strengthen democracy.
+        </p>
+        <a href="https://frc.multireligionvalsystem.eu.org/" class="button" target="_blank">
+          Become a Member (Free) →
+        </a>
+        <a href="https://www.multireligionvalsystem.eu.org" class="button" target="_blank">
+          Explore Religion Comparisons →
+        </a>
+      </div>
+
+    </div>
+  </div>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMV2S7Z6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <footer>
+    <div class="container">
+      <p>✅ FDU <a href="https://www.multireligionvalsystem.eu.org/How-to-Implement-a-Multi-Religion-Electoral-System-A-Step-by-Step-Guide/" target="_blank">MRES</a> & Multireligionvalsystem</p>
+      <p style="margin-top: 15px;">
+        <a href="https://www.multireligionvalsystem.eu.org">Main Site</a>
+        <a href="https://multireligionvalsystem.eu.org/mres/den-judisk-kristna-politiska-alliansen/">No to this Alliance</a>
+        <a href="https://flag-builder.multireligionvalsystem.eu.org/">https://flag-builder.multireligionvalsystem.eu.org/</a>
+      </p>
+      <p style="margin-top: 20px; opacity: 0.8;">
+        &copy; 2026 Multi-Religion Value System | Stockholm, Sweden
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(element) {
+      const faqItem = element.parentElement;
+      faqItem.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
