@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Religion Governance AI Assistant</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; background: #f9f9fb; color: #333; }
+        h1 { font-size: 1.5rem; color: #111; }
+        #chat-box { background: #fff; border: 1px solid #ddd; border-radius: 8px; height: 400px; padding: 20px; overflow-y: scroll; margin-bottom: 20px; }
+        .message { margin-bottom: 12px; line-height: 1.4; }
+        .user { text-align: right; color: #0066cc; }
+        .assistant { text-align: left; color: #333; }
+        .input-group { display: flex; gap: 10px; }
+        input[type="text"] { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+        button { padding: 10px 20px; background: #0066cc; color: white; border: none; border-radius: 6px; cursor: pointer; }
+        button:hover { background: #004999; }
+    </style>
+</head>
+<body>
+    <h1>Multi-Religion & Governance AI Assistant</h1>
+    <p>Query comparative constitutional laws, electoral engineering, and religious governance frameworks.</p>
+    
+    <div id="chat-box">
+        <div class="message assistant"><strong>Assistant:</strong> Hello! Ask me anything about multi-religious legal systems or electoral frameworks.</div>
+    </div>
+    
+    <div class="input-group">
+        <input type="text" id="user-input" placeholder="e.g., How does Article 24 work in Lebanon?">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            const text = input.value.trim();
+            if (!text) return;
+
+            chatBox.innerHTML += `<div class="message user"><strong>You:</strong> ${text}</div>`;
+            input.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Placeholder response trigger (Connect this to your Cloudflare Worker endpoint)
+            setTimeout(() => {
+                chatBox.innerHTML += `<div class="message assistant"><strong>Assistant:</strong> [Processing query via Knowledge Graph & Cloudflare AI...]</div>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 500);
+        }
+    </script>
+</body>
+</html>
