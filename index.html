@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Religion Governance AI Assistant</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; background: #f9f9fb; color: #333; }
+        h1 { font-size: 1.5rem; color: #111; }
+        #chat-box { background: #fff; border: 1px solid #ddd; border-radius: 8px; height: 400px; padding: 20px; overflow-y: auto; margin-bottom: 20px; }
+        .message { margin-bottom: 12px; line-height: 1.4; white-space: pre-wrap; }
+        .user { text-align: right; color: #0066cc; }
+        .assistant { text-align: left; color: #1a1a1a; }
+        .error { color: #d9534f; }
+        .input-group { display: flex; gap: 10px; }
+        input[type="text"] { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+        button { padding: 10px 20px; background: #0066cc; color: white; border: none; border-radius: 6px; cursor: pointer; }
+        button:hover { background: #004999; }
+        button:disabled { background: #cccccc; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <h1>Multi-Religion & Governance AI Assistant</h1>
+    <p>Query comparative constitutional laws, electoral engineering, and religious governance frameworks.</p>
+    
+    <div id="chat-box">
+        <div class="message assistant"><strong>Assistant:</strong> Hello! Ask me anything about multi-religious legal systems or electoral frameworks.</div>
+    </div>
+    
+    <div class="input-group">
+        <input type="text" id="user-input" placeholder="e.g., How does Article 24 work in Lebanon?" onkeydown="if(event.key === 'Enter') sendMessage()">
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        // Update this URL to your custom domain once DNS propagates
+        const WORKER_URL = "https://clawdbot-github-io.multireligionvalsystem.workers.dev";
+
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const sendBtn = document.getElementById('send-btn');
+            const chatBox = document.getElementById('chat-box');
+            const text = input.value.trim();
+
+            if (!text) return;
+
+            // 1. Display user query
+            const userMsgElement = document.createElement('div');
+            userMsgElement.className = 'message user';
+            userMsgElement.innerHTML = `<strong>You:</strong> ${escapeHtml(text)}`;
+            chatBox.appendChild(userMsgElement);
+
+            input.value = '';
+            input.disabled = true;
+            sendBtn.disabled = true;
+
+            // 2. Add placeholder message for the assistant
+            const assistantMsgElement = document.createElement('div');
+            assistantMsgElement.className = 'message assistant';
+            assistantMsgElement.innerHTML = `<strong>Assistant:</strong> <em>Thinking...</em>`;
+            chatBox.appendChild(assistantMsgElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                // 3. Make the API POST request to the Worker endpoint
+                const response = await fetch(WORKER_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ query: text })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP Error ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                
+                // 4. Update the assistant placeholder with the real response
+                const replyText = data.response || data.reply || "No response text returned.";
+                assistantMsgElement.innerHTML = `<strong>Assistant:</strong> ${escapeHtml(replyText)}`;
+            } catch (error) {
+                console.error("API Error:", error);
+                assistantMsgElement.className = 'message assistant error';
+                assistantMsgElement.innerHTML = `<strong>Assistant Error:</strong> Failed to fetch response. (${escapeHtml(error.message)})`;
+            } finally {
+                input.disabled = false;
+                sendBtn.disabled = false;
+                input.focus();
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/[&<>"']/g, function(m) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+            });
+        }
+    </script>
+</body>
+</html>
