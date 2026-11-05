@@ -1,4 +1,12 @@
-name: Automated Ecosystem Vector Ingestion
+   - name: Send Slack Alert on Failure
+        if: failure()
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+               --data '{"text":"🚨 *Alert:* Vectorize ingestion script for `multireligionvalsystem` failed! <https://github me/'"${GITHUB_REPOSITORY}"'/actions/runs/'"${GITHUB_RUN_ID}"'|View Logs>"}' \
+               $SLACK_WEBHOOK
+ name: Automated Ecosystem Vector Ingestion
 
 on:
     schedule:
